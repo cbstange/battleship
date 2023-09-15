@@ -9,9 +9,18 @@ COM_GUESS_BRD = [[" "] * 8 for i in range(8)]
 LET_TO_NUM = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, "G": 6, 'H': 7}
 
 def welcome():
-    print("Welcome to Battleship!\n")
-    print("The rules are simple.\n")
-    input("Press 'enter' to start the game.\n")
+    """
+    Welcome message with simple game play instructions
+    and request for user to start game.
+    """
+    print("Welcome to Battleship!")
+    print("----------------------------------")
+    print("The rules are simple.")
+    print("You and the computer will place")
+    print("five ships on your board.")
+    print("Sink all the ships and you win!")
+    print("----------------------------------\n")
+    input("Press 'enter' to start the game!\n")
 
 def display_board(board):
     """
