@@ -73,7 +73,7 @@ def ship_fit
            
 def user_input(place_ship):
     """
-    Try and except state ments to verify that user 
+    Try and exceptstate ments to verify that user 
     input is valid and to raise an error requesting
     valid imput from user.
     """
@@ -120,3 +120,14 @@ def user_input(place_ship):
             except KeyError:
                 print("Invalid entry. Please enter a letter between A-H for the column.\n")
         return row, column
+
+def hit_ships_count(board):
+    """
+    Verifies if all ships have been hit.
+    """
+    count = 0
+    for row in board:
+        for column in row:
+            if column == "X":
+                count += 1
+    return count
