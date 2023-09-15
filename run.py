@@ -146,3 +146,29 @@ def hit_ships_count(board):
                 count += 1
     return count
 
+def take_turn(board):
+    """
+    Function for both player and computer to take a turn.
+    Player is prompted to make a choice, while computer
+    generates rondom choices.
+    """
+    if board == PLAYER_GUESS_BRD:
+        row, column = user_input(PLAYER_GUESS_BRD)
+        if board[row][column] == "-":
+            take_turn(board)
+        elif board[row][column] == "X":
+            take_turn(board)
+        elif COM_GUESS_BRD[row][column] == "X":
+            board[row][column] = "X"
+        else:
+            board[row][column] = "-"
+    else:
+        row, column = random.randint(0, 7), random.randint(0, 7)
+        if board[row][column] == "-":
+            take_turn(board)
+        elif board[row][column] == "X":
+            take_turn(board)
+        elif PLAYER_BRD[row][column] == "X":
+            board[row][column] = "X"
+        else:
+            board[row][column] = "-"
