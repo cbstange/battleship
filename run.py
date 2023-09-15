@@ -1,7 +1,7 @@
 import random
 from random import randomint
 
-SHIP_LENGTH = [2,3,3,4,5]
+LENGTH_OF_SHIPS = [2,3,3,4,5]
 PLAYER_BRD = [[" "] * 8 for i in range(8)]
 COM_BRD = [[" "] * 8 for i in range(8)]
 PLAYER_GUESS_BRD = [[" "] * 8 for i in range(8)]
@@ -19,3 +19,39 @@ def display_board(board):
     for row in board:
         print("%d|%s|" % (row_num, "|".join(row)))
         row_num += 1
+
+def place_ships(board):
+    """
+    Function loops through the different ship lengths until
+    a ship fits in its orientation and does not overlap or
+    go outside of the board boundry.
+    """
+    for ship_length in LENGTH_OF_SHIPS:
+        while True:
+            if board == COM_BRD:
+                orientation, row, column = random.choice(["H", "V"]), random.randint(0, 7), random.randint(0, 7)
+                if ship_fit_check(ship_length, row, column, orientation):
+                    # check for overlaping
+                    if ship_overlaps(board, row, column, orientation, ship_length) == False:
+                        if orientation == "H":
+                            for i in range(column, column + ship_length):
+                                board[row][i] = "X"
+                        else:
+                            for i in range(row, row + ship_length):
+                                    board[i][column] = "X"
+                        break
+            
+            else:
+                place_ship = True
+                print(f"Place ship with a length of {ship_length}.\n")
+                row, column, orientation = user_input(place_ship)
+                if ship_fit_check(ship_length, row, column, orientation):
+                        if ship_overlaps(board, row, column, orientation, ship_length) == False:
+                            if orientation == "H":
+                                for i in range(column, column + ship_length):
+                                    board[row][i] = "X"
+                            else:
+                                for i in range(row, row + ship_length):
+                                    board[i][column] = "X"
+                            print_board(PLAYER_BOARD)
+                            break 
