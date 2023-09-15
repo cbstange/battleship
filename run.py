@@ -99,6 +99,7 @@ def ship_overlaps(board, row, column, orientation, ship_length):
                 return True
     return False
 
+# Try/except code used from Knowledge Mavens. See README for credit.
 def user_input(place_ship):
     """
     Try and exceptstate ments to verify that user 
