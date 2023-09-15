@@ -40,7 +40,6 @@ def place_ships(board):
                             for i in range(row, row + ship_length):
                                     board[i][column] = "X"
                         break
-            
             else:
                 place_ship = True
                 print(f"Place ship with a length of {ship_length}.\n")
@@ -55,3 +54,19 @@ def place_ships(board):
                                     board[i][column] = "X"
                             print_board(PLAYER_BOARD)
                             break 
+
+def ship_fit_check(SHIP_LENGTH, row, column, orientation):
+    """
+    Verifies if ship will fit based on its orientation, 
+    length and position within the board.
+    """
+    if orientation == "H":
+        if column + SHIP_LENGTH > 8:
+            return False
+        else:
+            return True
+    else:
+        if row + SHIP_LENGTH > 8:
+            return False
+        else:
+            return True
