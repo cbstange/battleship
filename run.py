@@ -55,7 +55,8 @@ def place_ships(board):
                             print_board(PLAYER_BOARD)
                             break 
 
-def ship_fit_check(SHIP_LENGTH, row, column, orientation):
+def ship_fit
+            _check(SHIP_LENGTH, row, column, orientation):
     """
     Verifies if ship will fit based on its orientation, 
     length and position within the board.
@@ -69,4 +70,53 @@ def ship_fit_check(SHIP_LENGTH, row, column, orientation):
         if row + SHIP_LENGTH > 8:
             return False
         else:
-            return True
+           
+def user_input(place_ship):
+    """
+    Try and except state ments to verify that user 
+    input is valid and to raise an error requesting
+    valid imput from user.
+    """
+    if place_ship == True:
+        while True:
+            try:
+                orientation = input("Enter ship orientation: 'H' for horizontal or 'L' for verticle.\n ").upper()
+                if orientation == "H" or orientation == "V":
+                    break
+            except TypeError:
+                print("Invalid entry. Please enter ship orientation: 'H' for horizontal or 'L' for verticle.\n ")
+        while True:
+            try:
+                row = input("Enter row 1-8 of the ship: \n")
+                if row in '12345678':
+                    row = int(row) - 1
+                    break
+            except ValueError:
+                print("Please enter a valid number between 1-8.\n")
+        while True:
+            try:
+                column = input("Enter the column of the ship between A-H.\n").upper()
+                if column in 'ABCDEFGH':
+                    column = LET_TO_NUM[column]
+                    break
+            except KeyError:
+                print("Invalid entry. Please enter a letter between A-H for the column.\n")
+        return row, column, orientation
+    else:
+        while True:
+            try:
+                row = input("Enter row 1-8 of the ships: \n")
+                if row in '12345678':
+                    row = int(row) - 1
+                    break
+            except ValueError:
+                print("Invalid entry. Please enter a number between 1-8.\n")
+        while True:
+            try:
+                column = input("Enter the column of the ship between A-H.\n").upper()
+                if column in 'ABCDEFGH':
+                    column = LET_TO_NUM[column]
+                    break
+            except KeyError:
+                print("Invalid entry. Please enter a letter between A-H for the column.\n")
+        return row, column
