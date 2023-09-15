@@ -172,3 +172,28 @@ def take_turn(board):
             board[row][column] = "X"
         else:
             board[row][column] = "-"
+
+place_ships(COM_BRD)
+display_board(COM_BRD)
+display_board(PLAYER_BRD)
+place_ships(PLAYER_BRD)
+
+# Game play: Player & computer taking turns.
+while True:
+    # Player takes turn
+    while True:
+        print("Guess a ship location.\n")
+        display_board(PLAYER_GUESS_BRD)
+        take_turn(PLAYER_GUESS_BRD)
+        break
+    if hit_ships_count(PLAYER_GUESS_BRD) == 17:
+        print("Congratulations! You win!\n")
+        break
+    # Computer takes turn
+    while True:
+        take_turn(COM_GUESS_BRD)
+        break
+    display_board(COM_GUESS_BRD)
+    if hit_ships_count(COM_GUESS_BRD) == 17:
+        print("Bummer! The computer won.\n")
+        break
