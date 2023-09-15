@@ -55,8 +55,7 @@ def place_ships(board):
                             print_board(PLAYER_BOARD)
                             break 
 
-def ship_fit
-            _check(SHIP_LENGTH, row, column, orientation):
+def ship_fit_check(SHIP_LENGTH, row, column, orientation):
     """
     Verifies if ship will fit based on its orientation, 
     length and position within the board.
@@ -70,7 +69,22 @@ def ship_fit
         if row + SHIP_LENGTH > 8:
             return False
         else:
+            return True
            
+def ship_overlaps(board, row, column, orientation, ship_length):
+    """
+    Verifies position of ships do not overlap.
+    """
+    if orientation == "H":
+        for i in range(column, column + ship_length):
+            if board[row][i] == "X":
+                return True
+    else:
+        for i in range(row, row + ship_length):
+            if board[i][column] == "X":
+                return True
+    return False
+
 def user_input(place_ship):
     """
     Try and exceptstate ments to verify that user 
@@ -131,3 +145,4 @@ def hit_ships_count(board):
             if column == "X":
                 count += 1
     return count
+
