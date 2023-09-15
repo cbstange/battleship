@@ -1,5 +1,5 @@
 import random
-from random import randomint
+from random import randint
 
 LENGTH_OF_SHIPS = [2,3,3,4,5]
 PLAYER_BRD = [[" "] * 8 for i in range(8)]
@@ -7,6 +7,11 @@ COM_BRD = [[" "] * 8 for i in range(8)]
 PLAYER_GUESS_BRD = [[" "] * 8 for i in range(8)]
 COM_GUESS_BRD = [[" "] * 8 for i in range(8)]
 LET_TO_NUM = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, "G": 6, 'H': 7}
+
+def welcome():
+    print("Welcome to Battleship!\n")
+    print("The rules are simple.\n")
+    input("Press 'enter' to start the game.\n")
 
 def display_board(board):
     """
@@ -52,7 +57,7 @@ def place_ships(board):
                             else:
                                 for i in range(row, row + ship_length):
                                     board[i][column] = "X"
-                            print_board(PLAYER_BOARD)
+                            display_board(PLAYER_BRD)
                             break 
 
 def ship_fit_check(SHIP_LENGTH, row, column, orientation):
@@ -94,14 +99,14 @@ def user_input(place_ship):
     if place_ship == True:
         while True:
             try:
-                orientation = input("Enter ship orientation: 'H' for horizontal or 'L' for verticle.\n ").upper()
+                orientation = input("Enter ship orientation: 'H' for horizontal or 'V' for verticle.\n ").upper()
                 if orientation == "H" or orientation == "V":
                     break
             except TypeError:
-                print("Invalid entry. Please enter ship orientation: 'H' for horizontal or 'L' for verticle.\n ")
+                print("Invalid entry. Please enter ship orientation: 'H' for horizontal or 'V' for verticle.\n ")
         while True:
             try:
-                row = input("Enter row 1-8 of the ship: \n")
+                row = input("Enter row 1-8 for the ship. \n")
                 if row in '12345678':
                     row = int(row) - 1
                     break
@@ -119,7 +124,7 @@ def user_input(place_ship):
     else:
         while True:
             try:
-                row = input("Enter row 1-8 of the ships: \n")
+                row = input("Enter row 1-8 for the ship.\n")
                 if row in '12345678':
                     row = int(row) - 1
                     break
@@ -158,7 +163,7 @@ def take_turn(board):
             take_turn(board)
         elif board[row][column] == "X":
             take_turn(board)
-        elif COM_GUESS_BRD[row][column] == "X":
+        elif COM_BRD[row][column] == "X":
             board[row][column] = "X"
         else:
             board[row][column] = "-"
@@ -173,8 +178,8 @@ def take_turn(board):
         else:
             board[row][column] = "-"
 
+welcome()
 place_ships(COM_BRD)
-display_board(COM_BRD)
 display_board(PLAYER_BRD)
 place_ships(PLAYER_BRD)
 
