@@ -1,10 +1,16 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# ![Battleship icon](./assets/images/readme-hero.png)
 
-Welcome,
+# Battleship
+### "Battleship" is simple game written in Python to mimic the classic board game. The inspiration was taken from the sample project ideas from Code Institute.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+## How to Play:
 
-## Reminders
+## Planning:
+
+## Logic:
+
+## Testing & Bugs
+
 
 - Your code must be placed in the `run.py` file
 - Your dependencies must be placed in the `requirements.txt` file
@@ -23,10 +29,6 @@ If you have credentials, such as in the Love Sandwiches project, you must create
 
 Connect your GitHub repository and deploy as normal.
 
-## Constraints
+## Credits:
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
----
-
-Happy coding!
