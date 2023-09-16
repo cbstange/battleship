@@ -30,5 +30,7 @@ If you have credentials, such as in the Love Sandwiches project, you must create
 Connect your GitHub repository and deploy as normal.
 
 ## Credits:
-
+### Media
+- Images were sourced from [Unsplash](https://unsplash.com/) which is a site that provides free images so there are no copywrite violations.
+-  Flowchart was created using [Lucid Chart](https://lucidchart.com/).
 

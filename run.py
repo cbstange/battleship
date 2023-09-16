@@ -1,12 +1,13 @@
 import random
 from random import randint
 
-LENGTH_OF_SHIPS = [2,3,3,4,5]
+LENGTH_OF_SHIPS = [2, 3, 3, 4, 5]
 PLAYER_BRD = [[" "] * 8 for i in range(8)]
 COM_BRD = [[" "] * 8 for i in range(8)]
 PLAYER_GUESS_BRD = [[" "] * 8 for i in range(8)]
 COM_GUESS_BRD = [[" "] * 8 for i in range(8)]
-LET_TO_NUM = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, "G": 6, 'H': 7}
+LET_TO_NUM = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7}
+
 
 def welcome():
     """
@@ -22,9 +23,10 @@ def welcome():
     print("----------------------------------\n")
     input("Press 'enter' to start the game!\n")
 
+
 def display_board(board):
     """
-    Display initial board play area starting at 1 
+    Display initial board play area starting at 1
     then iterating through row length.
     """
     print("  A B C D E F G H")
@@ -33,6 +35,7 @@ def display_board(board):
     for row in board:
         print("%d|%s|" % (row_num, "|".join(row)))
         row_num += 1
+
 
 def place_ships(board):
     """
@@ -43,35 +46,46 @@ def place_ships(board):
     for ship_length in LENGTH_OF_SHIPS:
         while True:
             if board == COM_BRD:
-                orientation, row, column = random.choice(["H", "V"]), random.randint(0, 7), random.randint(0, 7)
+                orientation, row, column = (
+                    random.choice(["H", "V"]),
+                    random.randint(0, 7),
+                    random.randint(0, 7),
+                )
                 if ship_fit_check(ship_length, row, column, orientation):
                     # check for overlaping
-                    if ship_overlaps(board, row, column, orientation, ship_length) == False:
+                    if (
+                        ship_overlaps(board, row, column, orientation, ship_length)
+                        == False
+                    ):
                         if orientation == "H":
                             for i in range(column, column + ship_length):
                                 board[row][i] = "X"
                         else:
                             for i in range(row, row + ship_length):
-                                    board[i][column] = "X"
+                                board[i][column] = "X"
                         break
             else:
                 place_ship = True
                 print(f"Place ship with a length of {ship_length}.\n")
                 row, column, orientation = user_input(place_ship)
                 if ship_fit_check(ship_length, row, column, orientation):
-                        if ship_overlaps(board, row, column, orientation, ship_length) == False:
-                            if orientation == "H":
-                                for i in range(column, column + ship_length):
-                                    board[row][i] = "X"
-                            else:
-                                for i in range(row, row + ship_length):
-                                    board[i][column] = "X"
-                            display_board(PLAYER_BRD)
-                            break 
+                    if (
+                        ship_overlaps(board, row, column, orientation, ship_length)
+                        == False
+                    ):
+                        if orientation == "H":
+                            for i in range(column, column + ship_length):
+                                board[row][i] = "X"
+                        else:
+                            for i in range(row, row + ship_length):
+                                board[i][column] = "X"
+                        display_board(PLAYER_BRD)
+                        break
+
 
 def ship_fit_check(SHIP_LENGTH, row, column, orientation):
     """
-    Verifies if ship will fit based on its orientation, 
+    Verifies if ship will fit based on its orientation,
     length and position within the board.
     """
     if orientation == "H":
@@ -84,7 +98,8 @@ def ship_fit_check(SHIP_LENGTH, row, column, orientation):
             return False
         else:
             return True
-           
+
+
 def ship_overlaps(board, row, column, orientation, ship_length):
     """
     Verifies position of ships do not overlap.
@@ -99,25 +114,30 @@ def ship_overlaps(board, row, column, orientation, ship_length):
                 return True
     return False
 
+
 # Try/except code used from Knowledge Mavens. See README for credit.
 def user_input(place_ship):
     """
-    Try and exceptstate ments to verify that user 
+    Try and except statements to verify that user
     input is valid and to raise an error requesting
     valid imput from user.
     """
     if place_ship == True:
         while True:
             try:
-                orientation = input("Enter ship orientation: 'H' for horizontal or 'V' for verticle.\n ").upper()
+                orientation = input(
+                    "Enter ship orientation: 'H' for horizontal or 'V' for verticle.\n "
+                ).upper()
                 if orientation == "H" or orientation == "V":
                     break
             except TypeError:
-                print("Invalid entry. Please enter ship orientation: 'H' for horizontal or 'V' for verticle.\n ")
+                print(
+                    "Invalid entry. Please enter ship orientation: 'H' for horizontal or 'V' for verticle.\n "
+                )
         while True:
             try:
                 row = input("Enter row 1-8 for the ship. \n")
-                if row in '12345678':
+                if row in "12345678":
                     row = int(row) - 1
                     break
             except ValueError:
@@ -125,17 +145,19 @@ def user_input(place_ship):
         while True:
             try:
                 column = input("Enter the column of the ship between A-H.\n").upper()
-                if column in 'ABCDEFGH':
+                if column in "ABCDEFGH":
                     column = LET_TO_NUM[column]
                     break
             except KeyError:
-                print("Invalid entry. Please enter a letter between A-H for the column.\n")
+                print(
+                    "Invalid entry. Please enter a letter between A-H for the column.\n"
+                )
         return row, column, orientation
     else:
         while True:
             try:
                 row = input("Enter row 1-8 for the ship.\n")
-                if row in '12345678':
+                if row in "12345678":
                     row = int(row) - 1
                     break
             except ValueError:
@@ -143,12 +165,15 @@ def user_input(place_ship):
         while True:
             try:
                 column = input("Enter the column of the ship between A-H.\n").upper()
-                if column in 'ABCDEFGH':
+                if column in "ABCDEFGH":
                     column = LET_TO_NUM[column]
                     break
             except KeyError:
-                print("Invalid entry. Please enter a letter between A-H for the column.\n")
+                print(
+                    "Invalid entry. Please enter a letter between A-H for the column.\n"
+                )
         return row, column
+
 
 def hit_ships_count(board):
     """
@@ -160,6 +185,7 @@ def hit_ships_count(board):
             if column == "X":
                 count += 1
     return count
+
 
 def take_turn(board):
     """
@@ -187,6 +213,7 @@ def take_turn(board):
             board[row][column] = "X"
         else:
             board[row][column] = "-"
+
 
 welcome()
 place_ships(COM_BRD)
