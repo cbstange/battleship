@@ -3,34 +3,60 @@
 # Battleship
 ### "Battleship" is simple game written in Python to mimic the classic board game. The inspiration was taken from the sample project ideas from Code Institute.
 
+#### [Here is the live version of my project]().
+
 ## How to Play:
+- Player places their own ships on the board and chooses the orientation of the ships.
+- Compuer's board and ship placement are randomly generated and cannot be seen by player.
+- Player then guess location of computer's ships by choosing a row between 108 and a column between A-H.
+- Player can see a miss marked by a "-" and a hit marked by an "X".
+- Computer and player take turns until all ships are sunk.
 
 ## Planning:
+- Reviewed classic Battleship rules and structure.
+- Created a flow chart to help visualize game play logic.
 
-## Logic:
+## Current Features:
+- User can play against the computer.
+- User is unable to see the computer's board.
+- Five ships with four sizes available.
+- User is able to choose the location and orientation (horizontal or vertical) of all ships.
+- Random ship placement for the computer's board.
+- Input validation:
+    - User must enter:
+        - An "H" or "V" for horizontal or vertical orientation of the ship.
+        - A number between 1-8 for the row.
+        - A letter between A-H for the column.
+    - User cannot enter the same guess twice.
+    - User must place ship within the board.
+        
 
-## Testing & Bugs
+## Future Features:
+- Score keeper: User's score displayed after each turn.
+- User can select board size, ie. difficulty.
 
+## Testing:
+- Periodic print() statements were used to verify expected behavior.
+- Running program in the terminal to verify expected behavior.
+- Debugger tool in Visual Sudio Code was used to verify logic.
+- ### Validation:
+    - Python code validity check with [Code Institues's Tool](https://pep8ci.herokuapp.com/#).
+    - Used [Code Beautify Tool](https://codebeautify.org/python-formatter-beautifier#) to check for and correct indentation issues.
+- ### GitHub was used for version control.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
+## Bugs:
+- ### Resolved Bugs:
+    - Indentation errors in my try/expect checks.
+    - Error for lines longer than 79 characters
+- ### Remaining Bugs:
+    - I continue to receive error: "E712 comparison to True should be 'if cond is True", however logic still functions as expected.
 
 ## Credits:
-### Media
+### Media:
 - Images were sourced from [Unsplash](https://unsplash.com/) which is a site that provides free images so there are no copywrite violations.
 -  Flowchart was created using [Lucid Chart](https://lucidchart.com/).
+### Supporting documents:
+- [Battleship Strategies](https://docs.python.org/3/library/random.html) for random logic were used from Python Docs - Python.org.
+- YoutTube channel [Code Pointers](https://www.youtube.com/watch?v=PNTvJ4MShlc) was used to resolve line length too long errors.
+- YouTube channel [Knowledge Mavens](https://www.youtube.com/watch?v=tF1WRCrd_HQ&t=0s) was used to guide a basic structure for the game.
 
