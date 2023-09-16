@@ -8,7 +8,6 @@ PLAYER_GUESS_BRD = [[" "] * 8 for i in range(8)]
 COM_GUESS_BRD = [[" "] * 8 for i in range(8)]
 LET_TO_NUM = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7}
 
-
 def welcome():
     """
     Welcome message with simple game play instructions
@@ -23,7 +22,6 @@ def welcome():
     print("----------------------------------\n")
     input("Press 'enter' to start the game!\n")
 
-
 def display_board(board):
     """
     Display initial board play area starting at 1
@@ -35,7 +33,6 @@ def display_board(board):
     for row in board:
         print("%d|%s|" % (row_num, "|".join(row)))
         row_num += 1
-
 
 def place_ships(board):
     """
@@ -82,7 +79,6 @@ def place_ships(board):
                         display_board(PLAYER_BRD)
                         break
 
-
 def ship_fit_check(SHIP_LENGTH, row, column, orientation):
     """
     Verifies if ship will fit based on its orientation,
@@ -99,7 +95,6 @@ def ship_fit_check(SHIP_LENGTH, row, column, orientation):
         else:
             return True
 
-
 def ship_overlaps(board, row, column, orientation, ship_length):
     """
     Verifies position of ships do not overlap.
@@ -113,7 +108,6 @@ def ship_overlaps(board, row, column, orientation, ship_length):
             if board[i][column] == "X":
                 return True
     return False
-
 
 # Try/except code used from Knowledge Mavens. See README for credit.
 def user_input(place_ship):
@@ -180,7 +174,6 @@ def user_input(place_ship):
                 )
         return row, column
 
-
 def hit_ships_count(board):
     """
     Verifies if all ships have been hit.
@@ -191,7 +184,6 @@ def hit_ships_count(board):
             if column == "X":
                 count += 1
     return count
-
 
 def take_turn(board):
     """
@@ -219,7 +211,6 @@ def take_turn(board):
             board[row][column] = "X"
         else:
             board[row][column] = "-"
-
 
 welcome()
 place_ships(COM_BRD)
