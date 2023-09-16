@@ -3,12 +3,16 @@
 # Battleship
 ### "Battleship" is simple game written in Python to mimic the classic board game. The inspiration was taken from the sample project ideas from Code Institute.
 
-#### [Here is the live version of my project]().
+#### [Here is the live version of my project](https://battleship-cbstange-ca945b7bee2a.herokuapp.com/).
+
+![Mockup](.//assets/images/readme-mockup.png)
 
 ## How to Play:
 - Player places their own ships on the board and chooses the orientation of the ships.
+
 - Compuer's board and ship placement are randomly generated and cannot be seen by player.
 - Player then guess location of computer's ships by choosing a row between 108 and a column between A-H.
+![Guess](.//assets/images/readme-guess.png)
 - Player can see a miss marked by a "-" and a hit marked by an "X".
 - Computer and player take turns until all ships are sunk.
 
@@ -29,6 +33,7 @@
 - User is unable to see the computer's board.
 - Five ships with four sizes available.
 - User is able to choose the location and orientation (horizontal or vertical) of all ships.
+![Place ship](.//assets/images/readme-place-ship.png)
 - Random ship placement for the computer's board.
 - Input validation:
     - User must enter:
