@@ -16,6 +16,12 @@
 - Reviewed classic Battleship rules and structure.
 - Created a flow chart to help visualize game play logic.
 
+## Data Model:
+- For my model, I used a "board" class.
+- The "board" class contains:
+    - Two board play areas
+    - Player and computer board with ships and guesses.
+
 ## Current Features:
 - User can play against the computer.
 - User is unable to see the computer's board.
