@@ -23,6 +23,8 @@
     - Player and computer board with ships and guesses.
 
 ## Current Features:
+- Welcome screen with brief description.
+![welcome screen](.//assets/images/readme-welcome.png)
 - User can play against the computer.
 - User is unable to see the computer's board.
 - Five ships with four sizes available.

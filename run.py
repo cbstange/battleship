@@ -120,15 +120,13 @@ def user_input(place_ship):
         while True:
             try:
                 orientation = input(
-                    "Enter ship orientation: 'H' for \
-                        horizontal or 'V' for vertical.\n "
+                    "Enter ship orientation: 'H' for horizontal or 'V' for vertical.\n "
                 ).upper()
                 if orientation == "H" or orientation == "V":
                     break
             except TypeError:
                 print(
-                    "Invalid entry. Please enter ship orientation: \
-                        'H' for horizontal or 'V' for vertical.\n "
+                    "Invalid entry. Please enter ship orientation: 'H' for horizontal or 'V' for vertical.\n "
                 )
         while True:
             try:
@@ -140,15 +138,13 @@ def user_input(place_ship):
                 print("Please enter a valid number between 1-8.\n")
         while True:
             try:
-                column = input("Enter the column of the \
-                    ship between A-H.\n").upper()
+                column = input("Enter the column of the ship between A-H.\n").upper()
                 if column in "ABCDEFGH":
                     column = LET_TO_NUM[column]
                     break
             except KeyError:
                 print(
-                    "Invalid entry. Please enter a letter \
-                        between A-H for the column.\n"
+                    "Invalid entry. Please enter a letter between A-H for the column.\n"
                 )
         return row, column, orientation
     else:
@@ -162,15 +158,13 @@ def user_input(place_ship):
                 print("Invalid entry. Please enter a number between 1-8.\n")
         while True:
             try:
-                column = input("Enter the column of \
-                    the ship between A-H.\n").upper()
+                column = input("Enter the column of the ship between A-H.\n").upper()
                 if column in "ABCDEFGH":
                     column = LET_TO_NUM[column]
                     break
             except KeyError:
                 print(
-                    "Invalid entry. Please enter a \
-                        letter between A-H for the column.\n"
+                    "Invalid entry. Please enter a letter between A-H for the column.\n"
                 )
         return row, column
 
