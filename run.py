@@ -124,6 +124,9 @@ def user_input(place_ship):
                 ).upper()
                 if orientation == "H" or orientation == "V":
                     break
+                else:
+                    print("Invalid entry. Please enter ship orientation: 'H' for horizontal or 'V' for vertical.\n"
+                    )
             except TypeError:
                 print(
                     "Invalid entry. Please enter ship orientation: 'H' for horizontal or 'V' for vertical.\n "
@@ -131,17 +134,22 @@ def user_input(place_ship):
         while True:
             try:
                 row = input("Enter row 1-8 for the ship. \n")
-                if row in "1-8":
+                if row in "1,2,3,4,5,6,7,8":
                     row = int(row) - 1
                     break
-            except ValueError:
-                print("Please enter a valid number between 1-8.\n")
+                else:
+                    print("Invalid entry. Please enter a valid number between 1-8.\n")
+            except KeyError:
+                print("Invalid entry. Please enter a valid number between 1-8.\n")
         while True:
             try:
                 column = input("Enter the column of the ship between A-H.\n").upper()
                 if column in "ABCDEFGH":
                     column = LET_TO_NUM[column]
                     break
+                else:
+                    print("Invalid entry. Please enter a letter between A-H for the column.\n"
+                    )
             except KeyError:
                 print(
                     "Invalid entry. Please enter a letter between A-H for the column.\n"
@@ -151,10 +159,12 @@ def user_input(place_ship):
         while True:
             try:
                 row = input("Enter row 1-8 for the ship.\n")
-                if row in "12345678":
+                if row in "1,2,3,4,5,6,7,8":
                     row = int(row) - 1
                     break
-            except ValueError:
+                else:
+                    print("Invalid entry. Please enter a valid number between 1-8.\n")
+            except KeyError:
                 print("Invalid entry. Please enter a number between 1-8.\n")
         while True:
             try:
@@ -162,6 +172,9 @@ def user_input(place_ship):
                 if column in "ABCDEFGH":
                     column = LET_TO_NUM[column]
                     break
+                else:
+                    print("Invalid entry. Please enter a letter between A-H for the column.\n"
+                    )
             except KeyError:
                 print(
                     "Invalid entry. Please enter a letter between A-H for the column.\n"
