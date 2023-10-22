@@ -131,7 +131,7 @@ def user_input(place_ship):
         while True:
             try:
                 row = input("Enter row 1-8 for the ship. \n")
-                if row in "12345678":
+                if row in "1-8":
                     row = int(row) - 1
                     break
             except ValueError:
