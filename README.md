@@ -49,12 +49,12 @@
 - User can select board size, ie. difficulty.
 
 ## Testing:
-- Periodic print() statements were used to verify expected behavior.
+- Regular print() statements were used to verify expected behavior.
 - Running program in the terminal to verify expected behavior.
 - Debugger tool in Visual Sudio Code was used to verify logic.
 - ### Validation:
     - Python code validity check with [Code Institues's Tool](https://pep8ci.herokuapp.com/#).
-    - Used [Code Beautify Tool](https://codebeautify.org/python-formatter-beautifier#) to check for and correct indentation issues.
+    - Used [Black]([https://codebeautify.org/python-formatter-beautifier#](https://black.readthedocs.io/en/stable/)) to check for and correct indentation issues and maintain formatting guidelines.
 - ### GitHub was used for version control.
 
 ## Bugs:
