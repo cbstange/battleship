@@ -25,6 +25,9 @@
 - The "board" class contains:
     - Two board play areas
     - Player and computer board with ships and guesses.
+## Libraries:
+- Built-in python libraries were used:
+    - random and randin were used to generate board.
 
 ## Current Features:
 - Welcome screen with brief description.
@@ -51,6 +54,7 @@
 ## Testing:
 - Regular print() statements were used to verify expected behavior.
 - Running program in the terminal to verify expected behavior.
+- Confirmed error handling when invalid user input entered.
 - Debugger tool in Visual Sudio Code was used to verify logic.
 - ### Validation:
     - Python code validity check with [Code Institues's Tool](https://pep8ci.herokuapp.com/#).
@@ -61,7 +65,6 @@
 - ### Resolved Bugs:
     - Indentation errors in my try/expect checks.
     - App crashed due to lack of exception/error handling, for example when entering an invalid row such as 12 when entry should be between 1-8.
-    - Error for lines longer than 79 characters
 - ### Remaining Bugs:
     - I continue to receive error: "E712 comparison to True should be 'if cond is True", however logic still functions as expected.
 
