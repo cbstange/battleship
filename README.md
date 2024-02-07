@@ -12,13 +12,13 @@
 
 - Compuer's board and ship placement are randomly generated and cannot be seen by player.
 - Player then guess location of computer's ships by choosing a row between 108 and a column between A-H.
-![Guess](.//assets/images/readme-guess.png)
+![Guess](./assets/images/readme-guess.png)
 - Player can see a miss marked by a "-" and a hit marked by an "X".
 - Computer and player take turns until all ships are sunk.
 
 ## Planning:
 - Reviewed classic Battleship rules and structure.
-- Created a flow chart to help visualize game play logic.
+- Created a flow chart to help visualize game play logic. Logic diagram can be found [here](.//assets/images/Readme-game-logic.pdf).
 
 ## Data Model:
 - For my model, I used a "board" class.
