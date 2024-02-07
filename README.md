@@ -60,6 +60,7 @@
 ## Bugs:
 - ### Resolved Bugs:
     - Indentation errors in my try/expect checks.
+    - App crashed due to lack of exception/error handling, for example when entering an invalid row such as 12 when entry should be between 1-8.
     - Error for lines longer than 79 characters
 - ### Remaining Bugs:
     - I continue to receive error: "E712 comparison to True should be 'if cond is True", however logic still functions as expected.
